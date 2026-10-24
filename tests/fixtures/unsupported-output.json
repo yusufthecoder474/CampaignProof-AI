@@ -1,0 +1,1 @@
+{"note":"Controlled injected provider response; never observed from a live LLM.","response":{"input_id":"uci-32951","probability":0.22,"evidence":[{"reason":"PRIOR_CAMPAIGN","attribute":"poutcome","value":"nonexistent"}],"customer_count":1000,"conversion_rate":0.99}}

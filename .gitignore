@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-worker/
+.wrangler/
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+.dev.vars
+*.log
+.DS_Store

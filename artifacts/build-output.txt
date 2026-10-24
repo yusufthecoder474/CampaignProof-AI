@@ -1,0 +1,32 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> campaignproof-ai@1.0.0 build
+> vite build && wrangler deploy --dry-run --outdir dist-worker
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 28 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.50 kB │ gzip:  0.34 kB
+dist/assets/index-DtlcG4iY.css    5.75 kB │ gzip:  1.96 kB
+dist/assets/index-EfSG29VL.js   233.06 kB │ gzip: 72.97 kB
+✓ built in 927ms
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.152.0
+────────────────────
+✨ Read 4 files from the assets directory /workspace/scratch/9d85ebe3cd8f/CampaignProof-AI/dist
+Total Upload: 794.19 KiB / gzip: 127.91 KiB
+Your Worker has access to the following bindings:
+Binding                                                                 Resource                  
+env.RUN_WORKFLOW (PredictionWorkflow)                                   Workflow                  
+env.DB (campaignproof)                                                  D1 Database               
+env.ASSETS                                                              Assets                    
+env.ALLOW_PAID_MODELS ("false")                                         Environment Variable      
+env.MAX_LIVE_SAMPLE ("20")                                              Environment Variable      
+env.OPEN_MODEL ("@cf/meta/llama-3.3-70b-instruct-fp8-f...")             Environment Variable      
+
+--dry-run: exiting now.

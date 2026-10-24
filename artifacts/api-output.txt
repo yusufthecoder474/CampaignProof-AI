@@ -1,0 +1,299 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> campaignproof-ai@1.0.0 test:integration
+> node scripts/integration.mjs
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.152.0
+────────────────────
+Resource location: local 
+
+Use --remote if you want to access the remote instance.
+
+🌀 Executing on local database campaignproof (00000000-0000-0000-0000-000000000000) from .wrangler/state/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+🚣 1 command executed successfully.
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+{
+  "assertions": 21,
+  "report": {
+    "threshold": 0.5,
+    "requested": 20,
+    "shared_valid": 20,
+    "warning": "Small shared sample: calibration estimates are unstable.",
+    "models": [
+      {
+        "provider": "baseline",
+        "kind": "statistical",
+        "invalid": 0,
+        "errors": 0,
+        "valid": 20,
+        "coverage": 1,
+        "n": 20,
+        "brier": 0.28558666614172534,
+        "accuracy": 0.7,
+        "bins": [
+          {
+            "lower": 0,
+            "upper": 0.1,
+            "count": 18,
+            "mean_probability": 0.043793341831826,
+            "observed_rate": 0.3333333333333333
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 2,
+            "mean_probability": 0.6482932522691722,
+            "observed_rate": 1
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.9,
+            "upper": 1,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          }
+        ],
+        "median_ms": 0,
+        "p95_ms": 0,
+        "cost_per_valid": 0,
+        "cost_note": "API cost only; excludes local compute"
+      },
+      {
+        "provider": "constant",
+        "kind": "statistical",
+        "invalid": 0,
+        "errors": 0,
+        "valid": 20,
+        "coverage": 1,
+        "n": 20,
+        "brier": 0.3638520430005656,
+        "accuracy": 0.6,
+        "bins": [
+          {
+            "lower": 0,
+            "upper": 0.1,
+            "count": 20,
+            "mean_probability": 0.048073810294593705,
+            "observed_rate": 0.4
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.9,
+            "upper": 1,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          }
+        ],
+        "median_ms": 0,
+        "p95_ms": 1,
+        "cost_per_valid": 0,
+        "cost_note": "API cost only; excludes local compute"
+      },
+      {
+        "provider": "mock",
+        "kind": "mock",
+        "invalid": 0,
+        "errors": 0,
+        "valid": 20,
+        "coverage": 1,
+        "n": 20,
+        "brier": 0.2808619499999999,
+        "accuracy": 0.6,
+        "bins": [
+          {
+            "lower": 0,
+            "upper": 0.1,
+            "count": 1,
+            "mean_probability": 0.062,
+            "observed_rate": 1
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 7,
+            "mean_probability": 0.1424285714285714,
+            "observed_rate": 0.42857142857142855
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 7,
+            "mean_probability": 0.2538571428571429,
+            "observed_rate": 0.14285714285714285
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 3,
+            "mean_probability": 0.369,
+            "observed_rate": 0.3333333333333333
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 2,
+            "mean_probability": 0.408,
+            "observed_rate": 1
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          },
+          {
+            "lower": 0.9,
+            "upper": 1,
+            "count": 0,
+            "mean_probability": null,
+            "observed_rate": null
+          }
+        ],
+        "median_ms": 0,
+        "p95_ms": 0.05000000000000071,
+        "cost_per_valid": 0,
+        "cost_note": "API cost only; excludes local compute"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE samples(id TEXT PRIMARY KEY,features_json TEXT NOT NULL,data_kind TEXT NOT NULL CHECK(data_kind IN ('historical','synthetic')));
+CREATE TABLE hidden_labels(sample_id TEXT PRIMARY KEY REFERENCES samples(id),outcome INTEGER NOT NULL CHECK(outcome IN (0,1)));
+CREATE TABLE runs(id TEXT PRIMARY KEY,request_hash TEXT NOT NULL,config_json TEXT NOT NULL,sample_ids_json TEXT NOT NULL,status TEXT NOT NULL CHECK(status IN ('queued','running','complete','failed')),created_at TEXT NOT NULL,error TEXT);
+CREATE TABLE predictions(run_id TEXT NOT NULL REFERENCES runs(id),sample_id TEXT NOT NULL REFERENCES samples(id),provider TEXT NOT NULL,input_hash TEXT NOT NULL,snapshot_json TEXT NOT NULL,record_json TEXT NOT NULL,status TEXT NOT NULL CHECK(status IN ('valid','invalid','error')),created_at TEXT NOT NULL,PRIMARY KEY(run_id,sample_id,provider));
+CREATE TABLE outcomes(run_id TEXT NOT NULL,sample_id TEXT NOT NULL,outcome INTEGER NOT NULL CHECK(outcome IN (0,1)),revealed_at TEXT NOT NULL,PRIMARY KEY(run_id,sample_id),FOREIGN KEY(run_id) REFERENCES runs(id),FOREIGN KEY(sample_id) REFERENCES samples(id));
+CREATE TRIGGER immutable_prediction_update BEFORE UPDATE ON predictions BEGIN SELECT RAISE(ABORT,'Predictions are immutable'); END;
+CREATE TRIGGER immutable_prediction_delete BEFORE DELETE ON predictions BEGIN SELECT RAISE(ABORT,'Predictions are immutable'); END;
+CREATE TRIGGER immutable_outcome_update BEFORE UPDATE ON outcomes BEGIN SELECT RAISE(ABORT,'Outcomes are immutable'); END;
+CREATE TRIGGER immutable_outcome_delete BEFORE DELETE ON outcomes BEGIN SELECT RAISE(ABORT,'Outcomes are immutable'); END;
+CREATE TRIGGER outcome_requires_prediction BEFORE INSERT ON outcomes WHEN NOT EXISTS(SELECT 1 FROM predictions WHERE run_id=NEW.run_id AND sample_id=NEW.sample_id) BEGIN SELECT RAISE(ABORT,'Store prediction before revealing outcome'); END;

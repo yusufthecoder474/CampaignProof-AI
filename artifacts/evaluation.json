@@ -1,0 +1,43 @@
+{
+  "dataset": "UCI Bank Marketing / bank-additional-full.csv",
+  "data_kind": "historical",
+  "sha256": "74adfc578bf77a7ff4bb1ba4a9f8709d9e3c6907342959c2c8416847e0afb4d8",
+  "rows": 41188,
+  "train": 24712,
+  "validation": 8238,
+  "test": 8238,
+  "threshold": 0.5,
+  "features": [
+    "job",
+    "education",
+    "housing",
+    "loan",
+    "contact",
+    "month",
+    "day_of_week",
+    "poutcome",
+    "previous",
+    "pdays"
+  ],
+  "excluded": [
+    "duration",
+    "campaign",
+    "age",
+    "marital",
+    "default",
+    "emp.var.rate",
+    "cons.price.idx",
+    "cons.conf.idx",
+    "euribor3m",
+    "nr.employed"
+  ],
+  "train_base_rate": 0.04807381029459372,
+  "test_observed_rate": 0.3083272638990046,
+  "logistic_brier": 0.2627790860235149,
+  "constant_brier": 0.28099342234858143,
+  "logistic_accuracy": 0.6831755280407866,
+  "constant_accuracy": 0.6916727361009953,
+  "python_export_max_error": 2.220446049250313e-16,
+  "validation_brier": 0.09778906760928904,
+  "live_llm_evaluation": "not run"
+}
